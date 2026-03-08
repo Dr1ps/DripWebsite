@@ -369,19 +369,10 @@
             }
 
             .sidebar {
-                width: 30%;           /* full width on phone */
-                height: auto;          /* sidebar adjusts height automatically */
+                width: 30%;
+                height: 100%;
                 padding: 20px 10px;
-                flex-direction: row;   /* horizontal content optional */
-                justify-content: flex-start;
-                position: relative;    /* remove fixed positioning */
-            }
-
-            .sidebar h2 {
-                margin-top: 0;         /* don’t push to bottom on mobile */
-                font-size: clamp(16px, 5vw, 120px); /* smaller, responsive */
-                text-align: left;
-                flex: 1;               /* allow it to fill row if needed */
+                flex-direction: column;
             }
 
             .main {
@@ -390,7 +381,6 @@
             }
 
             .topnav, .subnav {
-                position: relative;    /* stack naturally */
                 left: 30vw;
                 width: 70%;
                 padding: 15px 20px;
