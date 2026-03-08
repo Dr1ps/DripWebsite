@@ -55,7 +55,7 @@
 
         .sidebar {
             /* Simple width */
-            width: 380px;
+            width: 30vw;
 
             /* Full height */
             height: 100vh;
@@ -67,7 +67,7 @@
                     rgba(0, 0, 0, 0) 40%,          /* image fully visible */
                     var(--sidebar) 100%           /* full color at bottom */
                 ),
-                url("images/photos/pfp1.jpeg");
+                url("images/photos/pfp2.jpeg");
 
             background-size: cover;
             background-position: top;
@@ -88,7 +88,10 @@
             font-weight: 500;
             color: var(--text);
             letter-spacing: 1px;
-            font-size: 40px;               /* slightly bigger for emphasis */
+
+            /* Scales with screen width, min 0px, max 120px */
+            font-size: clamp(20px, 3vw, 60px);
+
             text-align: center;
 
             /* Makes it pop over the image */
@@ -98,18 +101,13 @@
             /* text-shadow: 2px 2px 6px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.1); */
         }
 
-        .connectionDiv a:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-
         /* ============================= */
         /*             MAIN              */
         /* ============================= */
 
         .main {
-            margin-left: 380px;       /* space for sidebar */
-            width: calc(100% - 380px);
+            margin-left: 30vw;       /* space for sidebar */
+            width: 70vw;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -119,14 +117,10 @@
         /*           NAVIGATION          */
         /* ============================= */
 
-        /* ============================= */
-/*           NAVIGATION          */
-/* ============================= */
-
 .topnav {
     position: fixed;
     top: 0;
-    left: 380px; /* sidebar width */
+    left: 30vw; /* sidebar width */
     right: 0;
     display: flex;
     gap: 40px;
@@ -139,7 +133,7 @@
 .subnav {
     position: fixed;
     top: 75px; /* height of topnav */
-    left: 380px;
+    left: 30vw; /* sidebar width */
     right: 0;
     display: flex;
     gap: 30px;
