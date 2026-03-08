@@ -362,44 +362,45 @@
         .subnav button:hover::after {
             width: 100%;
         }
+
         @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
+            body {
+                flex-direction: column;
+            }
 
-    .sidebar {
-        width: 100%;           /* full width on phone */
-        height: auto;          /* sidebar adjusts height automatically */
-        padding: 20px 10px;
-        flex-direction: row;   /* horizontal content optional */
-        justify-content: flex-start;
-        position: relative;    /* remove fixed positioning */
-    }
+            .sidebar {
+                width: 30%;           /* full width on phone */
+                height: auto;          /* sidebar adjusts height automatically */
+                padding: 20px 10px;
+                flex-direction: row;   /* horizontal content optional */
+                justify-content: flex-start;
+                position: relative;    /* remove fixed positioning */
+            }
 
-    .sidebar h2 {
-        margin-top: 0;         /* don’t push to bottom on mobile */
-        font-size: clamp(16px, 5vw, 32px); /* smaller, responsive */
-        text-align: left;
-        flex: 1;               /* allow it to fill row if needed */
-    }
+            .sidebar h2 {
+                margin-top: 0;         /* don’t push to bottom on mobile */
+                font-size: clamp(16px, 5vw, 120px); /* smaller, responsive */
+                text-align: left;
+                flex: 1;               /* allow it to fill row if needed */
+            }
 
-    .main {
-        margin-left: 0;        /* no sidebar offset */
-        width: 100%;           /* full width below sidebar */
-    }
+            .main {
+                margin-left: 30vw;        /* no sidebar offset */
+                width: 70%;           /* full width below sidebar */
+            }
 
-    .topnav, .subnav {
-        position: relative;    /* stack naturally */
-        left: 0;
-        width: 100%;
-        padding: 15px 20px;
-        gap: 15px;
-    }
+            .topnav, .subnav {
+                position: relative;    /* stack naturally */
+                left: 30vw;
+                width: 70%;
+                padding: 15px 20px;
+                gap: 15px;
+            }
 
-    .content {
-        padding: 20px;         /* smaller padding for mobile */
-    }
-}
+            .content {
+                padding: 20px;         /* smaller padding for mobile */
+            }
+        }
 
     </style>
 </head>
