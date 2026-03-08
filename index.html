@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriele Perna</title>
+
+    <!-- Loads css that lets me use icons like Facebook and GitHub ones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* ============================= */
+        /*           ROOT SYSTEM         */
+        /* ============================= */
+
+        /* Root section makes you create variables to save values and use them later */
+        /* To use a variable you must write var(--variableName) */
+
+        :root {
+            --bg: #1a1f29;
+            --sidebar: #161a22;
+            --card: #1c212b;
+            --accent: #4f8cff;
+            --text: #e6e9ef;
+            --muted: #9aa3b2;
+        }
+
+        /* Makes everything not grow in size when padding is initialized, content shrinks instead */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            /*Removes browser default padding*/
+            margin: 0;
+
+            /*Preferred fonts (left to right)*/
+            font-family: "Inter", system-ui, sans-serif;
+
+            /*Background color*/
+            background: var(--bg);
+
+            /*Font color*/
+            color: var(--text);
+
+            /*Display mode, flex makes direct child-items be displayed horizontally without stacking vertically*/
+            display: flex;
+        }
+
+        /* ============================= */
+        /*           SIDEBAR             */
+        /* ============================= */
+
+        .sidebar {
+            /* Simple width */
+            width: 380px;
+
+            /* Full height */
+            height: 100vh;
+
+            /* Background image + fade to sidebar color */
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0) 40%,          /* image fully visible */
+                    var(--sidebar) 100%           /* full color at bottom */
+                ),
+                url("images/photos/pfp2.jpeg");
+
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+
+            padding: 50px 25px;
+            position: fixed;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+
+        }
+
+        .sidebar h2 {
+            margin-top: auto;              /* keeps it at the bottom of the sidebar */
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 1px;
+            font-size: 40px;               /* slightly bigger for emphasis */
+            text-align: center;
+
+            /* Makes it pop over the image */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+            /* Optional subtle glow for extra effect */
+            /* text-shadow: 2px 2px 6px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.1); */
+        }
+
+        .connectionDiv a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* ============================= */
+        /*             MAIN              */
+        /* ============================= */
+
+        .main {
+            margin-left: 380px;       /* space for sidebar */
+            width: calc(100% - 380px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================= */
+        /*           NAVIGATION          */
+        /* ============================= */
+
+        /* ============================= */
+/*           NAVIGATION          */
+/* ============================= */
+
+.topnav {
+    position: fixed;
+    top: 0;
+    left: 380px; /* sidebar width */
+    right: 0;
+    display: flex;
+    gap: 40px;
+    padding: 25px 60px;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
+}
+
+.subnav {
+    position: fixed;
+    top: 75px; /* height of topnav */
+    left: 380px;
+    right: 0;
+    display: flex;
+    gap: 30px;
+    padding: 15px 60px;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    z-index: 999;
+}
+
+        .topnav button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 6px;
+            transition: 0.3s;
+        }
+
+        .topnav button:hover {
+            color: var(--text);
+        }
+
+        .topnav button::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+
+        .topnav button:hover::after {
+            width: 100%;
+        }
+
+        /* ============================= */
+        /*            CONTENT            */
+        /* ============================= */
+
+        .content {
+            padding: 140px 60px 60px 60px;
+            flex: 1;
+        }
+
+        .section {
+            display: none;
+            animation: fade 0.4s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        h3 {
+            font-weight: 450;
+            line-height: 1.7;
+            text-decoration: underline;
+        }
+
+        p, li {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .skill {
+            color: var(--muted);
+            width: fit-content;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.05);
+            margin: 0;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: 2px;
+            margin-top:10px;
+        }
+        .connection {
+            color: var(--muted);
+            width: fit-content;
+
+            /* Bigger pill shape */
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.1);
+
+            /* Bigger spacing */
+            padding: 15px 25px; /* top/bottom 15px, left/right 25px */
+            margin: 10px 5px 0 0; /* top 10px, right 5px */
+
+            /* Bigger font */
+            font-size: 20px;
+            font-weight: 500;
+
+            /* Optional: subtle shadow for emphasis */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+            text-decoration: none;
+        }
+        .connectionDiv {
+            display:flex;
+            flex-wrap: wrap;
+            line-height: 1.7;
+        }
+        .interest {
+            color: var(--muted);
+            width: fit-content;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.05);
+            margin: 0;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: 2px;
+            margin-top:10px;
+        }
+        .interestDiv {
+            display:flex;
+            flex-wrap: wrap;
+            line-height: 1.7;
+        }
+
+        .skillDiv {
+            display:flex;
+            flex-wrap: wrap;
+            line-height: 1.7;
+        }
+
+        /* ============================= */
+        /*              GRID             */
+        /* ============================= */
+
+        .grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .poem-grid {
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
+
+        .model-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 14px;
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* ============================= */
+        /*            FOOTER             */
+        /* ============================= */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ============================= */
+
+        @keyframes fade {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .subnav button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 6px;
+            transition: 0.3s;
+        }
+
+        .subnav button:hover {
+            color: var(--text);
+        }
+
+        .subnav button::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+
+        .subnav button:hover::after {
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2>Gabriele Perna</h2>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="topnav">
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('connections')">Connections</button>
+        <button onclick="showSection('resume')">Resume</button>
+        <button onclick="showSection('creations')">Creations</button>
+        <button onclick="showSection('misc')">Miscellaneous</button>
+    </div>
+
+    <div class="subnav" id="subnav"></div>
+
+    <div class="content">
+        <div id="about" class="section active">
+            <h1>About Me</h1>
+            <h2>Personal Details</h2>
+            <ul>
+                <li><strong>Full name:</strong> Gabriele Perna</li>
+                <li><strong>Also widely known as:</strong> Drip</li>
+                <li><strong>Date of birth:</strong> January 12, 2006</li>
+                <li><strong>Sex:</strong> Male</li>
+                <li><strong>Nationality:</strong> Italian</li>
+                <li><strong>Occupation:</strong> Computer science student</li>
+                <li><strong>Driver's license:</strong> A1, B</li>
+            </ul>
+            <h2>Interests:</h2>
+            <h3><i class="fa-solid fa-microphone"></i> Beatboxing</h3>
+            <p><b>Beatboxing</b> is the way to produce music with your mouth and vocal cords.<br>
+                I saw my first beatbox video back in 2019 when the world-class beatbox tournament, <b>Grand Beatbox Battle</b>, was rising in popularity.
+                I was shocked to see what a person could create with nothing but themselves, that inspired me to become a beatboxer myself, I thought it was pretty <br>
+                I was also impressed by how many variation of this art-form there are: there's <b>Loopstation</b>, which involves the use of a looping device such as the MKI or MKII to loop sounds, add effects and create even more realistic music; there's <b>Tag Team</b> for beatboxing duos and <b>Crew category</b> for groups with more than 2 beatboxers.
+                The beatboxers I look up to the most are <b>Codfish</b> and <b>D-low</b>, both world champions, respectively in 2018 and 2019.<br>
+                It had started as a casual hobby, but by time it became more and more serious. As of now, I work often on my sounds and I keep improving.<br>
+                "<b>Drip</b>" is also my stage-name (beatbox nickname), although it was not born for this purpose.<br>
+                My biggest dream is to get on that stage and show everyone my music. At the moment I'm participating in a lot of showcases and talent show competitions, winning most of them.
+                I consider beatboxing to be the most rewarding passion I've ever had, the community is extremely supportive and so are my family and friends.
+                If you want to see some beatbox content of mine, go check out my socials!<br>
+                Furthermore, I really encourage you to check some Grand Beatbox Battle videos on the YouTube channel <b>Swissbeatbox</b>, beatbox can get really impressive.
+            </p>
+            <h3><i class="fa-solid fa-laptop-code"></i> Computer Science</h3>
+            <p>Since I got introduced to digital entertainment as a kid, such as video games, I've always been curious about how everything digital works. As I started learning the first concepts of <b>computer science</b> I knew the interest was going to stick with me for life.<br>
+                It's impressive how people managed to realize such complex systems and algorithms, every day as I learn more and more my passion grows and demands more. I'm pretty interested in everything that computer science has to offer: web development, networking, custom apps development and much more.
+                What's more, I appreciate the organized aspect of coding, nothing beats writing a well written program with proper documentation and format. Computer science knowledge has also helped me a lot with my everyday tasks saving me a lot of time, using <b>LaTeX</b> to take notes for example immensely improved my studying method efficiency for subjects like Calculus and Algebra.
+                What keeps my computer science interest alive is also its constant evolution, which offers me new opportunities to improve and test my limits.</p>
+            <h3><i class="fa-solid fa-gamepad"></i> Playing Videogames</h3>
+                <p>As most people my age have done and do, I like to spend some of my free time playing <b>video games</b>. I've been introduced to my first gaming console, the <b>Nintendo DSi</b>, while I was in elementary school.
+                    The first ever video game I've played is <b>Mario Kart DS</b>, since then I've played an infinity of other titles on many different gaming consoles.<br>
+                    Playing video games to me is like watching a movie in which you take part and your choices matter. Besides the entertainment, these are the reasons why I enjoy playing video games: connecting with other people,
+                    learning new things and morals and training creativity and problem-solving. Furthermore, playing online helped me build <b>strong english speaking skills</b> that I would have never learned in school alone, and I'm really proud of it.</p>
+            <h3><i class="fa-solid fa-pencil"></i> Writing Poems</h3>
+                <p>Although not that often, sometimes I like to dedicate myself to some writing, in particular <b>poem writing</b>.<br>
+                    There is not a precise reason why I started writing, I apparently tried it out and happened to like it a lot. I try to always write poems of the same length but with different musicality, topic and vocabulary.
+                    I think writing is a great exercise for my english skills and knowledge, as it allows me to work on being synthetic, precise and original.
+                    To give myself a challenge, usually I prefer to write a poem about a <b>random topic</b> chosen by someone.</p>
+            <h3><i class="fa-solid fa-gem"></i> Collectionism</h3>
+                <p>I started collecting various items when I was just a kid, such as <b>Pokèmon cards</b> and coins. I've always had the spark for collectionism, as of now I still can't explain it.<br>
+                    I actually attempted many collections, such as stickers and <b>action figures</b>, but by time I abandoned most of them: some of them where too expensive and some others not very rewarding to go for.
+                    As of today, I still collect Pokèmon cards by also having some rather expensive items, <b>postcards</b>, calling cards and retro-gaming consoles and games. I'm glad I've spent time on collecting these, it allowed me to meet people with similar taste and form solid friendships.</p>
+        </div>
+
+        <div id="connections" class="section">
+            <h1>Connections</h1>
+            <div class="connectionDiv">
+                <a href="https://github.com/Dr1ps" class="connection"><i class="fab fa-github"></i> Dr1ps</a>
+                <a href="https://www.instagram.com/drip.bbx/" class="connection"><i class="fab fa-instagram"></i> drip.bbx </a>
+                <a href="https://www.facebook.com/profile.php?id=61567116280808" class="connection"><i class="fab fa-facebook"></i> Gabriele Perna</a>
+                <a href="https://www.youtube.com/@Drip_z" class="connection"><i class="fab fa-youtube"></i> Drip_z</a>
+                <a href="https://steamcommunity.com/id/enjoying-paradise/" class="connection"><i class="fab fa-steam"></i> Drip</a>
+                <a href="mailto:perna.gabriele@pec.it" class="connection"><i class="fas fa-envelope"></i> perna.gabriele@pec.it</a>
+                <a href="mailto:gabrigionny@email.com" class="connection"><i class="fas fa-envelope"></i> gabrigionny@gmail.com</a>
+            </div>
+        </div>
+        <!-- RESUME -->
+        <div id="resume" class="section">
+            <h1>Professional Profile</h1>
+
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>IT Assistant</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Massa, Tuscany, IT</p>
+                <p><b>Period:</b> October 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Setting up and managing the technical aspects of a conference.</li>
+                    <li>Loading and advancing the presenter’s slides during presentations.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Promoter</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Viareggio, Tuscany, IT</p>
+                <p><b>Period:</b> August 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Promoting the Young Platform service during a public event.</li>
+                    <li>Distributing free sunscreen samples to attendees as part of the promotional campaign.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Steward (4)</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Pietrasanta, Tuscany, IT</p>
+                <p><b>Period:</b> July 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Welcoming guests and providing general assistance at a Porsche event venue.</li>
+                    <li>Supporting event organization and customer interaction.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Steward (3)</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Massa, Tuscany, IT</p>
+                <p><b>Period:</b> July 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Preparing and setting up a villa for a gala dinner.</li>
+                    <li>Unloading vans, restocking materials, and handling occasional errands.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Steward (2)</h3>
+                <p><b>Employer:</b> ThemaEventi</p>
+                <p><b>Location:</b> Lucca, Tuscany, IT</p>
+                <p><b>Period:</b> July 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Welcoming attendees and validating tickets for a Banco BPM conference.</li>
+                    <li>Distributing water bottles and fans to participants.</li>
+                    <li>Managing the cloakroom service.</li>
+                    <li>Providing general event assistance.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Software Developer - Internship (2)</h3>
+                <p><b>Employer:</b> Hastega SRL</p>
+                <p><b>Location:</b> Lucca, Toscana, IT</p>
+                <p><b>Period:</b> January 2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Creating a new frontend sub-menu in a private project</li>
+                    <li>Creating tables with Angular and working with databases for data logging.</li>
+                    <li>Writing documentation for the written code.</li>
+                    <li>Generic debugging of previously written code.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Software Developer - Internship (1)</h3>
+                <p><b>Employer:</b> Hastega SRL</p>
+                <p><b>Location:</b> Lucca, Toscana, IT</p>
+                <p><b>Period:</b> June 2024</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Creating APIs for a private project by interacting with databases with the help of DBeaver.</li>
+                    <li>Creating new classes and modules in Typescript.</li>
+                    <li>Logged and experimented with HTML requests through Bruno.</li>
+                    <li>Generic debugging.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
+                <h3>Steward (1)</h3>
+                <p><b>Employer:</b> Perchennò SRL</p>
+                <p><b>Location:</b> Viareggio, Tuscany, IT</p>
+                <p><b>Period:</b> June 2024</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Welcoming visitors at a Warner Bros. event stand.</li>
+                    <li>Distributing promotional gadgets.</li>
+                    <li>Promoting Stellest eyeglass lenses.</li>
+                    <li>Organizing recreational activities for children.</li>
+                </ul>
+            </div>
+
+            <h2>Skills</h2>
+            <div class="skillDiv">
+                <p class="skill"><i class="fa-brands fa-html5"></i> HTML & CSS</p>
+                <p class="skill"><i class="fa-brands fa-github"></i> GitHub</p>
+                <p class="skill"><i class="fa-brands fa-js"></i> Javascript & Typescript</p>
+                <p class="skill"><i class="fa-brands fa-java"></i> Java & JavaFX</p>
+                <p class="skill"><i class="fa-solid fa-file-excel"></i> Excel</p>
+                <p class="skill"><i class="fa-solid fa-file-word"></i> Word</p>
+                <p class="skill"><i class="fa-solid fa-file-powerpoint"></i> PowerPoint</p>
+                <p class="skill"><i class="fa-solid fa-database"></i> Databases and MySQl</p>
+            </div>
+
+            <h2>Certificates</h2>
+            <ul>
+                <li><b>Certificate in Advanced English (C1 Advanced) —</b> Cambridge English</li>
+                <li><b>HACCP —</b> Hideea</li>
+                <li><b>"Certificato per la sicurezza sul lavoro (basso livello)" —</b> Centro Formazione Innovazione (CFI)</li>
+            </ul>
+        </div>
+
+        <!-- CREATIONS -->
+        <div id="creations" class="section">
+
+            <div id="poemsSection">
+                <h1>Poems</h1>
+                <div class="grid poem-grid">
+
+                    <!-- TEMPLATE POEM -->
+                        <div class="card">
+                            <h3>Bees on flowers</h3>
+                            <p>
+                                In the middle of spring,<br>
+                                in a field populated by flowers,<br>
+                                flapping are the wings<br>
+                                of a hundred bees every hour.<br>
+                                The field brightly smiles<br>
+                                in many different colors<br>
+                                as bees make it happen.<br>
+                                Though, as the moon arises<br>
+                                bees call for their brothers<br>
+                                before the field entirely blackens.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Shield</h3>
+                            <p>
+                                We had to fall back,<br>
+                                no hope is left,<br>
+                                hundreds of corpses in the field.<br>
+                                They're preparing an attack,<br>
+                                bro's death left me bereft,<br>
+                                my only escape is my shield.<br>
+                                I could use it to run back safely<br>
+                                until I'm out of range,<br>
+                                sadly, the blood on it already<br>
+                                tells me well it might not age.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Music</h3>
+                            <p>
+                                Organized soundwaves<br>
+                                really are a masterpiece,<br>
+                                music is what makes<br>
+                                life as good as it is.<br>
+                                It does tickle my heart,<br>
+                                made me dance like a fool<br>
+                                since the day I was born.<br>
+                                A form of art<br>
+                                that talks to you<br>
+                                without need of any word.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Groundhogs</h3>
+                            <p>
+                                I like the sight<br>
+                                of groundhogs in the forest<br>
+                                near my home.<br>
+                                My day they surely bright,<br>
+                                it really is the best<br>
+                                to see them aimlessly roam.<br>
+                                I tried to bring one home today<br>
+                                by patting it on the back,<br>
+                                it once was all alone and stray<br>
+                                but now it follows me after I gave it a snack.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Distant friends</h3>
+                            <p>
+                                For all the ones I adore<br>
+                                a new wound opens,<br>
+                                one that never heals.<br>
+                                The love seems to not be there,<br>
+                                distance is the burden<br>
+                                that makes it not be real.<br>
+                                I miss my friends,<br>
+                                even though I never met them,<br>
+                                Useless, illusory pain,<br>
+                                may this note be torn to shreds
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Hell</h3>
+                            <p>
+                                Eternal scorching fire,<br>
+                                Gift for your sinful desires.<br>
+                                Traitors, fiends and liars,<br>
+                                all of you, Inferno must admire!<br>
+                                All your hope must be left<br>
+                                at the glorious welcome mat<br>
+                                and your spirit is sold.<br>
+                                Doomed as in here you stepped,<br>
+                                get devoured by a pack<br>
+                                or frozen in the eternal cold.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The uselessness of dreaming</h3>
+                            <p>
+                                Leave it,<br>
+                                Hate it,<br>
+                                Throw it away.<br>
+                                Dreaming,<br>
+                                Wishes,<br>
+                                There's no reason to stay.<br>
+                                Called 'dreams' for a reason,<br>
+                                in those, everything is ideal,<br>
+                                it infatuates you good,<br>
+                                but at last, it can't be real.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The hollow of sadness</h3>
+                            <p>
+                                Sadness and delusion<br>
+                                feel the same as hunger,<br>
+                                a deep serious hollow,<br>
+                                one is food, one is darker.<br>
+                                Hunger's good, it kills you,<br>
+                                bad mood is kind of rude,<br>
+                                then easy it is to choose:<br>
+                                die of hunger, don't feel blue,<br>
+                                as hunger saves you<br>
+                                from what is cruel.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The meaning of life</h3>
+                            <p>
+                                A miraculous gift<br>
+                                from an unknown sender,<br>
+                                meaningless extended shift<br>
+                                on which we always ponder.<br>
+                                What's that, what's it for?<br>
+                                What's life supposed to be?<br>
+                                Billion answers, no one's sure,<br>
+                                the sense we have is to live it<br>
+                                since when on Earth we perish<br>
+                                we'll find out or we won't.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The Mouth Inspector</h3>
+                            <p>
+                                Panic arrives and you stall,<br>
+                                occurs out of nowhere,<br>
+                                it's coming, that's the sign.<br>
+                                The Mouth appears on the wall,<br>
+                                checks the clean place<br>
+                                and yet it screams, you resign.<br>
+                                Panic becomes fear<br>
+                                and stress becomes terror,<br>
+                                no pain, no aches, no tears,<br>
+                                just a bad, disastrous error.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The importance of Nostalgia</h3>
+                            <p>
+                                Life includes feelings,<br>
+                                feelings include nostalgia,<br>
+                                nostalgia defines life.<br>
+                                Memories make the living,<br>
+                                not joy, nor anger or fear,<br>
+                                only melancholy is needed here.<br>
+                                Distant attachments,<br>
+                                childhood, us during our prime,<br>
+                                if these for you are absent,<br>
+                                sorry, you're yet not alive.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>The weight of unspoken words</h3>
+                            <p>
+                                You almost had it,<br>
+                                just one more sentence<br>
+                                and you'd be done,<br>
+                                yet, words suddenly perished,<br>
+                                buried on your inner self<br>
+                                as if it was crushed by stones.<br>
+                                In pain, the soul reaches<br>
+                                for a handle to free itself,<br>
+                                that's the wish for new chances<br>
+                                which horizon seems to be dead.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <h3>A cabin in the snow</h3>
+                            <p>
+                                Singular entity of peace<br>
+                                in a biome of dense nothing,<br>
+                                an insufficient creaky place<br>
+                                is the only where there's living.<br>
+                                A deep, eerie howling,<br>
+                                steps that feel like thunder,<br>
+                                the fumes of your inner soul.<br>
+                                In here, my brain sings<br>
+                                and lets me be me, my best tool<br>
+                                fueled by the concept of home.
+                            </p>
+                        </div>
+                        </p>
+                </div>
+            </div>
+
+            <div id="modelsSection" style="display:none;">
+                <h1>3D Models</h1>
+                <div class="grid model-grid">
+
+                    <!-- TEMPLATE MODEL -->
+                    <div class="card">
+                        <img src="images/models/Bomb.gif">
+                        <h3>Bomb</h3>
+                        <p>Lucky thing it's not ignited.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Can.gif">
+                        <h3>Soda Can</h3>
+                        <p>Fizzy!</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Cigarette.gif">
+                        <h3>Cigarette</h3>
+                        <p>Don't smoke guys!</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Diamond.gif">
+                        <h3>Diamond</h3>
+                        <p>IM RICH!</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Dice.gif">
+                        <h3>Dice</h3>
+                        <p>Chooses your destiny.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/King Slime.gif">
+                        <h3>King Slime</h3>
+                        <p>Trying its best.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Lollipop.gif">
+                        <h3>Lollipop</h3>
+                        <p>Impossible to unwrap.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Mace.gif">
+                        <h3>Mace</h3>
+                        <p>The real skull-crusher.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Machete.gif">
+                        <h3>Machete</h3>
+                        <p>Might chop your hand off.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Magnifying Glass.gif">
+                        <h3>Magnifying Glass</h3>
+                        <p>May cause unexpected fires.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Mario Kart Trophy.gif">
+                        <h3>Mario Kart Trophy</h3>
+                        <p>Given to the best racers.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Minecraft Bee.gif">
+                        <h3>Minecraft's Bee</h3>
+                        <p>Bzzzzz!</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Mistery Block.gif">
+                        <h3>Mistery Block</h3>
+                        <p>Looks rather familiar.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Nintendo3DS.gif">
+                        <h3>Nintendo 3DS XL</h3>
+                        <p>Everybody's childhood.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Piece of cake.gif">
+                        <h3>Slice of Cake</h3>
+                        <p>Happy birthday!</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Potted Flower.gif">
+                        <h3>Potted Flower</h3>
+                        <p>The master of patio design.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Red Button.gif">
+                        <h3>Red Button</h3>
+                        <p>Makes you want to press it.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Rubiks Cube.gif">
+                        <h3>Rubik's Cube</h3>
+                        <p>Only the biggest minds can solve it.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Snail.gif">
+                        <h3>Snail</h3>
+                        <p>Takes its time...</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Stack of Money.gif">
+                        <h3>Stack of Money</h3>
+                        <p>The rubber band is about to snap.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Sword.gif">
+                        <h3>Sword</h3>
+                        <p>Recently forged.</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Toilet Paper.gif">
+                        <h3>Toilet Paper</h3>
+                        <p>The "trick" in "trick or treat"</p>
+                    </div>
+                    <div class="card">
+                        <img src="images/models/Top Hat.gif">
+                        <h3>Top Hat</h3>
+                        <p>Classy.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MISC -->
+        <div id="misc" class="section">
+
+            <div id="rankingsSection">
+                <h1>Rankings</h1>
+                <h2>Video Games</h2>
+                <ol>
+                    <li>Minecraft</li>
+                    <li>Mario & Luigi: Partners in Time</li>
+                    <li>Kirby Triple Deluxe</li>
+                    <li>Luigi's Mansion: Dark Moon</li>
+                    <li>PEAK</li>
+                    <li>The Forest</li>
+                    <li>The Binding of Isaac: Repentance+</li>
+                    <li>Far Cry 4</li>
+                    <li>Mario Sport Mix</li>
+                    <li>Omori</li>
+                    <li>Go Vacation</li>
+                    <li>Enter the Gungeon</li>
+                    <li>Arctic Eggs</li>
+                    <li>Kirby Mass Attack</li>
+                    <li>Donkey Kong: Country Returns</li>
+                    <li>Paladins</li>
+                    <li>Into the Breach</li>
+                    <li>Undertale</li>
+                    <li>The Walking Dead</li>
+                    <li>Far Cry 5</li>
+                    <li>Portal</li>
+                    <li>Turnip Boy Robs A Bank</li>
+                    <li>Portal 2</li>
+                    <li>BAD END THEATER</li>
+                    <li>Miitopia</li>
+                    <li>Mario Kart Wii</li>
+                    <li>Mario Kart DS</li>
+                    <li>Mario Kart 7</li>
+                    <li>Pokémon SoulSilver</li>
+                    <li>A Short Hike</li>
+                    <li>Turnip Boy Commits Tax Evasion</li>
+                    <li>Terraria</li>
+                    <li>Hollow Knight</li>
+                    <li>Super Smash Bros 3DS</li>
+                    <li>LOOTPLOT</li>
+                    <li>Cavern of Dreams</li>
+                    <li>Super Mario Galaxy 2</li>
+                    <li>Reventure</li>
+                    <li>Celeste</li>
+                    <li>WEBFISHING</li>
+                    <li>INSIDE</li>
+                    <li>Mario & Luigi: Bowser's Inside Story + that thing</li>
+                    <li>Baba Is You</li>
+                    <li>Pokémon Platinum</li>
+                    <li>Pilgrims</li>
+                    <li>Mario Party 8</li>
+                    <li>Super Mario 64</li>
+                    <li>Tomodachi Life</li>
+                    <li>Mario Party 9</li>
+                    <li>Poco</li>
+                    <li>Bomberman DS</li>
+                    <li>Plants vs. Zombies 2</li>
+                    <li>Mirror's Edge</li>
+                    <li>Bad Parenting 1: Mr. Red Face</li>
+                    <li>Buckshot Roulette</li>
+                    <li>Kabuto Park</li>
+                    <li>Mad Father</li>
+                    <li>Prince of Persia: Sands of Time</li>
+                    <li>Brawlhalla</li>
+                    <li>OneShot</li>
+                    <li>Slime Rancher</li>
+                    <li>Superflight</li>
+                    <li>NO-SKIN</li>
+                    <li>Bomberman Land</li>
+                    <li>Death Road to Canada</li>
+                    <li>CHUCHEL</li>
+                    <li>Super Mario 3D Land</li>
+                    <li>Shelldiver</li>
+                    <li>Bioprototype</li>
+                    <li>Plants vs. Zombies</li>
+                    <li>King of the Bridge</li>
+                    <li>Psychopomp</li>
+                    <li>Love is Dead</li>
+                    <li>Turbo Dismount</li>
+                    <li>Sideswiped</li>
+                    <li>Wii Play Motion</li>
+                    <li>Florence</li>
+                    <li>Sheepy: A Short Adventure</li>
+                    <li>BABBDI</li>
+                    <li>Zombie Tsunami</li>
+                    <li>Awaria</li>
+                    <li>Downwell</li>
+                    <li>Just Dance 4</li>
+                    <li>The NOexistenceN of you AND me</li>
+                    <li>Ann</li>
+                    <li>Emily is Away Too</li>
+                    <li>Papa Pear Saga</li>
+                    <li>Content Warning</li>
+                    <li>Mosa Lina</li>
+                    <li>Kiosk</li>
+                    <li>Clash Royale</li>
+                    <li>DISTRAINT: Deluxe Edition</li>
+                    <li>Helltaker</li>
+                    <li>missed messages</li>
+                    <li>Wii Party</li>
+                    <li>One Night Stand</li>
+                    <li>Jetpack Joyride</li>
+                    <li>one night, hot springs</li>
+                    <li>Angry Birds: Star Wars</li>
+                    <li>A Date in the Park</li>
+                    <li>New Super Mario Bros 2</li>
+                    <li>Pokémon Rumble World</li>
+                    <li>Helltaker</li>
+                    <li>Angry Birds 2</li>
+                    <li>Angry Birds Epic</li>
+                    <li>Calling</li>
+                    <li>Mage Arena</li>
+                    <li>LIMBO</li>
+                    <li>The Binding of Isaac</li>
+                    <li>The Boba Teashop</li>
+                    <li>Little Witch in the Woods</li>
+                    <li>New Super Mario Bros</li>
+                    <li>Mario Party</li>
+                    <li>Super Monkey Ball</li>
+                    <li>Pineapple on pizza</li>
+                    <li>inbento</li>
+                    <li>Days Without Incident</li>
+                    <li>Unturned</li>
+                    <li>There is no game: Jam Edition 2015</li>
+                    <li>Splitgate</li>
+                    <li>Missing Hiker</li>
+                    <li>The Looker</li>
+                    <li>Rental</li>
+                    <li>The Supper</li>
+                    <li>Mimic Search</li>
+                    <li>Super Mario Maker 3D</li>
+                    <li>Pixel Survival 3</li>
+                    <li>FNAF 4</li>
+                    <li>Pixel Survival 2</li>
+                    <li>Randotura</li>
+                    <li>Scribblenauts Unlimited</li>
+                    <li>ROGO</li>
+                    <li>Swallow the Sea</li>
+                    <li>Counter-Strike 2</li>
+                    <li>Gore In Crayon</li>
+                    <li>Dr. Mario</li>
+                    <li>Handshakes</li>
+                    <li>TERPENIE</li>
+                    <li>qualia</li>
+                    <li>Tetris</li>
+                    <li>Moldbreaker: Rise of the Loaf</li>
+                    <li>Idle Slayer</li>
+                    <li>AchBall</li>
+                    <li>Daemonologie</li>
+                    <li>MultiVersus</li>
+                    <li>Silent Residence</li>
+                    <li>STRAFTAT</li>
+                    <li>Draw</li>
+                    <li>Cars 2</li>
+                    <li>Milk inside a bag of milk inside a bag of milk</li>
+                    <li>Living Nightmares - False Familiar</li>
+                    <li>Kingdom: New Lands</li>
+                    <li>VRChat</li>
+                    <li>Fears to Fathom - Episode 1</li>
+                    <li>Mimic Logic</li>
+                    <li>Fruit Ninja</li>
+                    <li>FNAF 2</li>
+                    <li>The Children of Clay</li>
+                    <li>Wordle (Steam)</li>
+                    <li>Gravitas</li>
+                    <li>Clash of Clans</li>
+                    <li>20 Small Mazes</li>
+                    <li>Kuboom</li>
+                    <li>Travellin Cats in Paris</li>
+                    <li>Travellin Cats in Jingle Jam</li>
+                    <li>Travellin Cats in Christmas</li>
+                    <li>100 hidden frogs</li>
+                    <li>FNAF</li>
+                    <li>Picross Touch</li>
+                    <li>FNAF 3</li>
+                    <li>100 Dino Cats</li>
+                    <li>Tiny Terrors</li>
+                    <li>Bongo Cat</li>
+                    <li>Watertight</li>
+                    <li>100 Robo Cats</li>
+                    <li>100 Istanbul Cats</li>
+                    <li>Cats and Seek: Osaka</li>
+                    <li>Cave Crawler 2</li>
+                    <li>Crab Game</li>
+                    <li>Loading Screen Simulator</li>
+                    <li>Puzzle Chambers</li>
+                    <li>100 Ninja Cats</li>
+                    <li>Pokémon Picross</li>
+                    <li>100 Capitalist Cats</li>
+                    <li>Evil Egg</li>
+                    <li>Krunker</li>
+                    <li>We Become What We Behold</li>
+                    <li>Left or Right</li>
+                    <li>Eraser</li>
+                    <li>Magic Archery</li>
+                    <li>Streets Of Kamurocho</li>
+                    <li>100 Funny Cats</li>
+                    <li>Fox! Hen! Bag!</li>
+                    <li>100 Christmas Cats</li>
+                    <li>100 Alien Cats</li>
+                    <li>100 Romantic Cats</li>
+                    <li>Forbidden Terror: Board Game</li>
+                    <li>100 Asian Cats</li>
+                    <li>Leaf Blower Revolution - Idle Game</li>
+                    <li>Muck</li>
+                    <li>Steam Engine Simulator</li>
+                    <li>Cave Crawler</li>
+                    <li>Redshift</li>
+                    <li>100 March Cats</li>
+                    <li>The Monster Inside</li>
+                    <li>Eronoctosis: Put Yourself Together</li>
+                    <li>Mossy Pixels</li>
+                    <li>You Will (Not) Remain</li>
+                    <li>Castle Break</li>
+                    <li>Gravity Snake</li>
+                    <li>Caribbean Crashers</li>
+                    <li>At Home Alone Final</li>
+                    <li>Sewer Rave</li>
+                    <li>Project H</li>
+                    <li>How Fish Is Made</li>
+                    <li>The one who pulls out the sword will be crowned king</li>
+                    <li>click to ten</li>
+                    <li>Banana</li>
+                    <li>THE BUTTON</li>
+                    <li>EGG</li>
+                    <li>The Plan</li>
+                    <li>Cats</li>
+                    <li>dig</li>
+                    <li>Distant Space</li>
+                    <li>Barro GT</li>
+                    <li>8-Bit Bayonetta</li>
+                    <li>Cucumber</li>
+                    <li>Asteroids</li>
+                    <li>Chaos</li>
+                    <li>Away</li>
+                </ol>
+            </div>
+
+            <div id="curiositiesSection" style="display:none;">
+                <h1>More about me</h1>
+                <h2>Favorites</h2>
+                <ul>
+                    <li><strong>Favorite Food:</strong> Tiramisu, Peas</li>
+                    <li><strong>Favorite Movie:</strong> Interstellar</li>
+                    <li><strong>Favorite Movie Genre:</strong> Drama</li>
+                    <li><strong>Favorite Color:</strong> Light Blue</li>
+                    <li><strong>Favorite TV Show:</strong> Dexter (2006)</li>
+                    <li><strong>Favorite Song:</strong> Enemy Brain by Fox Stevenson</li>
+                    <li><strong>Favorite Music Genre:</strong> House, DnB, Techno</li>
+                    <li><strong>Favorite Video Game Genre:</strong> Roguelike / Roguelite</li>
+                    <li><strong>Favorite Season:</strong> Winter</li>
+                    <li><strong>Favorite Weather:</strong> Sunny</li>
+                    <li><strong>Favorite Holiday:</strong> Christmas</li>
+                    <li><strong>Favorite Flower:</strong> Sunflower</li>
+                    <li><strong>Favorite Animal:</strong> Fox</li>
+                    <li><strong>Favorite City:</strong> London</li>
+                    <li><strong>Favorite Place Visited:</strong> London</li>
+                    <li><strong>Favorite Sport:</strong> Volleyball</li>
+                    <li><strong>Favorite Outdoor Activity:</strong> Walking alone</li>
+                    <li><strong>Favorite Indoor Activity:</strong> Board Games</li>
+                    <li><strong>Favorite Board Game:</strong> Chess</li>
+                </ul>
+                <h2>Other</h2>
+                <ul>
+                    <li><strong>Early Bird or Night Owl:</strong> Night Owl</li>
+                    <li><strong>Coffee or Tea:</strong> Coffee</li>
+                    <li><strong>Sweet or Salty:</strong> Sweet</li>
+                    <li><strong>Cats or Dogs:</strong> Dogs</li>
+                    <li><strong>Sunrise or Sunset:</strong> Sunrise</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Gabriele Perna — Enjoying Paradise
+    </footer>
+
+</div>
+
+<script>
+    function showSection(id){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    const sub=document.getElementById("subnav");
+    sub.innerHTML="";
+    if(id==="creations"){
+    sub.innerHTML=`<button onclick="showCreation('poems')">Poems</button>
+    <button onclick="showCreation('models')">3D Models</button>`;
+    }
+    if(id==="misc"){
+    sub.innerHTML=`<button onclick="showMisc('rankings')">Rankings</button>
+    <button onclick="showMisc('curiosities')">More about me</button>`;
+    }
+    }
+    function showCreation(type){
+    document.getElementById("poemsSection").style.display=type==="poems"?"block":"none";
+    document.getElementById("modelsSection").style.display=type==="models"?"block":"none";
+    }
+    function showMisc(type){
+    document.getElementById("rankingsSection").style.display=type==="rankings"?"block":"none";
+    document.getElementById("curiositiesSection").style.display=type==="curiosities"?"block":"none";
+    }
+</script>
+
+</body>
+</html>
