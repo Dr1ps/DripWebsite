@@ -368,18 +368,19 @@
 
             body {
                 min-width: 1366px
+                max-height: 100vh
             }
 
             .sidebar {
-                width: 30%;
+                width: 30vw;
                 height: 100vh;
                 padding: 20px 10px;
                 flex-direction: column;
             }
 
             .main {
-                margin-left: 30%;
-                width: 70%;
+                margin-left: 30vw;
+                width: calc(100% - 30vw);
                 box-sizing: border-box;
             }
 
