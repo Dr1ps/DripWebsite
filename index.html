@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--Make the webpage width match the device's screen width.(content attribute)-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriele Perna</title>
 
@@ -69,24 +70,34 @@
                 ),
                 url("images/photos/pfp1.JPG");
 
+            /*Makes the image fill the entire container (sidebar)*/
             background-size: cover;
+            /*The top of the image starts at the top*/
             background-position: top;
+            /*Gets rid of repeating images (there shouldnt be, but just in case)*/
             background-repeat: no-repeat;
 
             padding: 50px 25px;
+            /*Does not move*/
             position: fixed;
 
             display: flex;
+            /*Flexes items as a column*/
             flex-direction: column;
+            /*Horizontal alignment*/
             align-items: center;
+            /*Pushes everything to the bottom (because it's a column, otherwise would have been end of the row)*/
             justify-content: flex-end;
 
         }
 
         .sidebar h2 {
-            margin-top: auto;              /* keeps it at the bottom of the sidebar */
+            /* keeps it at the bottom of the sidebar */
+            margin-top: auto;
+            /*Slightly bolder than normal (400)*/
             font-weight: 500;
             color: var(--text);
+            /*Slightly more spaced out letters*/
             letter-spacing: 1px;
 
             /* Scales with screen width, min 0px, max 120px */
@@ -106,8 +117,11 @@
         /* ============================= */
 
         .main {
-            margin-left: 30vw;       /* space for sidebar */
+            /*Space taken by sidebar*/
+            margin-left: 30vw;
+            /*Remaining space*/
             width: 70vw;
+            /*Must cover all the screen height*/
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -118,59 +132,83 @@
         /* ============================= */
 
 .topnav {
+    /*Does not move*/
     position: fixed;
+    /*Right at the top of the page*/
     top: 0;
-    left: 30vw; /* sidebar width */
+    /*Space taken by sidebar*/
+    left: 30vw;
     right: 0;
+    /*justifies buttons*/
     display: flex;
+    /*Adds a */
     gap: 40px;
     padding: 25px 60px;
     background: var(--bg);
+    /*Draws a separator colored line*/
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    /*Very high z index brings it on top of everything (could cover everything)*/
     z-index: 1000;
 }
 
 .subnav {
     position: fixed;
-    top: 75px; /* height of topnav */
-    left: 30vw; /* sidebar width */
+    /* height of topnav */
+    top: 75px;
+    /* sidebar width */
+    left: 30vw;
     right: 0;
     display: flex;
     gap: 30px;
     padding: 15px 60px;
     background: var(--bg);
     border-bottom: 1px solid rgba(255,255,255,0.03);
+    /*Covers everything besides topnav*/
     z-index: 999;
 }
 
         .topnav button {
+            /*Transparent, same color as topnav*/
             background: none;
+            /*No outline*/
             border: none;
             color: var(--muted);
             font-size: 15px;
             letter-spacing: 1px;
+            /*Makes the cursor change when hovering over it (hand)*/
             cursor: pointer;
             position: relative;
             padding-bottom: 6px;
+            /*Length of transition (cursor), makes it not instant*/
             transition: 0.3s;
         }
 
         .topnav button:hover {
+            /*First transition makes the text light up*/
             color: var(--text);
         }
-
+        /*after element is a fake element created by CSS*/
+        /*used for overline here, goes below text*/
         .topnav button::after {
+            /*element must have content, but we want it empty*/
             content: "";
+            /*Places the element relative to its parent (button)*/
             position: absolute;
+            /*places line at the bottom of the button (below text)*/
             bottom: 0;
+            /*aligned to the left*/
             left: 0;
+            /*line starts with no width*/
             width: 0%;
+            /*thickness*/
             height: 2px;
             background: var(--accent);
             transition: 0.3s;
         }
 
+        /*Animated version of the after element*/
         .topnav button:hover::after {
+            /*expands to 100% width (100% of the button*/
             width: 100%;
         }
 
@@ -180,15 +218,20 @@
 
         .content {
             padding: 140px 60px 60px 60px;
+            /*tells item that it can grow or shrink if the parent has display: flex;*/
             flex: 1;
         }
 
         .section {
+            /*invisible and doesnt take up space*/
             display: none;
+            /*fade in when eventually showing up*/
             animation: fade 0.4s ease;
         }
 
         .section.active {
+            /*Makes it visible and makes it behave like a normal block element*/
+            /*Block display elements: make items have full width, starting on a new line everytime*/
             display: block;
         }
 
@@ -215,12 +258,17 @@
             line-height: 1.7;
         }
 
+        /*Skill looks like a little tag*/
         .skill {
             color: var(--muted);
+            /*Depends on content size*/
             width: fit-content;
+            /*Smooth corners*/
             border-radius: 30px;
+            /*Colored outline*/
             border: 2px solid rgba(255,255,255,0.05);
             margin: 0;
+            /*paddings distances tags from each other*/
             padding-right: 10px;
             padding-left: 10px;
             margin-right: 2px;
@@ -249,22 +297,7 @@
         }
         .connectionDiv {
             display:flex;
-            flex-wrap: wrap;
-            line-height: 1.7;
-        }
-        .interest {
-            color: var(--muted);
-            width: fit-content;
-            border-radius: 30px;
-            border: 2px solid rgba(255,255,255,0.05);
-            margin: 0;
-            padding-right: 10px;
-            padding-left: 10px;
-            margin-right: 2px;
-            margin-top:10px;
-        }
-        .interestDiv {
-            display:flex;
+            /*Makes item go on a new line if they dont fit*/
             flex-wrap: wrap;
             line-height: 1.7;
         }
@@ -280,12 +313,17 @@
         /* ============================= */
 
         .grid {
+            /*Sets up a grid*/
             display: grid;
+            /*Space between each row and column*/
             gap: 30px;
+            /*gap doesnt include spacing from the top*/
             margin-top: 30px;
         }
 
         .poem-grid {
+            /*makes as many colums as can fit in a row*/
+            /*at least 260px, they can stretch to fill remaining space*/
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         }
 
@@ -299,15 +337,20 @@
             border-radius: 14px;
             transition: 0.3s ease;
             position: relative;
+            /*crops overflow, no scrollbars*/
             overflow: hidden;
         }
 
+        /*Makes it pop*/
         .card:hover {
+            /*Goes slightly up*/
             transform: translateY(-6px);
+            /*Adds shadow*/
             box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
         .card img {
+            /*images fill entire width*/
             width: 100%;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -327,11 +370,15 @@
 
         /* ============================= */
 
+        /*Fade animation you can use anywhere*/
         @keyframes fade {
+            /*Element starts 10px below it's actual position and is invisible*/
             from {opacity: 0; transform: translateY(10px);}
+            /*moves up and becomes visible*/
             to {opacity: 1; transform: translateY(0);}
         }
 
+        /*same as topnav button*/
         .subnav button {
             background: none;
             border: none;
@@ -363,6 +410,7 @@
             width: 100%;
         }
 
+        /*Mobile compatability*/
         @media (max-width: 768px) {
 
 
@@ -496,7 +544,7 @@
                 <h3>IT Assistant</h3>
                 <p><b>Employer:</b> PromoHostess</p>
                 <p><b>Location:</b> Massa, Tuscany, IT</p>
-                <p><b>Period:</b> October 2025</p>
+                <p><b>Period:</b> 11/10/2025</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Setting up and managing the technical aspects of a conference.</li>
@@ -508,8 +556,8 @@
             <div class="card">
                 <h3>Promoter</h3>
                 <p><b>Employer:</b> PromoHostess</p>
-                <p><b>Location:</b> Viareggio, Tuscany, IT</p>
-                <p><b>Period:</b> August 2025</p>
+                <p><b>Location:</b> Viareggio, Tuscany, IT & Massa, Tuscany, IT</p>
+                <p><b>Period:</b> 02/08/2025 - 03/08/2025</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Promoting the Young Platform service during a public event.</li>
@@ -517,25 +565,11 @@
                 </ul>
             </div>
             <br>
-
-            <div class="card">
-                <h3>Steward (4)</h3>
-                <p><b>Employer:</b> PromoHostess</p>
-                <p><b>Location:</b> Pietrasanta, Tuscany, IT</p>
-                <p><b>Period:</b> July 2025</p>
-                <p><b>Tasks:</b></p>
-                <ul>
-                    <li>Welcoming guests and providing general assistance at a Porsche event venue.</li>
-                    <li>Supporting event organization and customer interaction.</li>
-                </ul>
-            </div>
-            <br>
-
             <div class="card">
                 <h3>Steward (3)</h3>
                 <p><b>Employer:</b> PromoHostess</p>
                 <p><b>Location:</b> Massa, Tuscany, IT</p>
-                <p><b>Period:</b> July 2025</p>
+                <p><b>Period:</b> 27/07/2025 - 28/07/2025</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Preparing and setting up a villa for a gala dinner.</li>
@@ -545,10 +579,23 @@
             <br>
 
             <div class="card">
+                <h3>Steward (4)</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Pietrasanta, Tuscany, IT</p>
+                <p><b>Period:</b> 03/07/2025 - 04/07/2025</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Welcoming guests and providing general assistance at a Porsche event venue.</li>
+                    <li>Supporting event organization and customer interaction.</li>
+                </ul>
+            </div>
+            <br>
+
+            <div class="card">
                 <h3>Steward (2)</h3>
                 <p><b>Employer:</b> ThemaEventi</p>
                 <p><b>Location:</b> Lucca, Tuscany, IT</p>
-                <p><b>Period:</b> July 2025</p>
+                <p><b>Period:</b> 02/07/2025</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Welcoming attendees and validating tickets for a Banco BPM conference.</li>
@@ -563,7 +610,7 @@
                 <h3>Software Developer - Internship (2)</h3>
                 <p><b>Employer:</b> Hastega SRL</p>
                 <p><b>Location:</b> Lucca, Toscana, IT</p>
-                <p><b>Period:</b> January 2025</p>
+                <p><b>Period:</b> 20/01/2025 - 31/01/2025 (no weekends)</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Creating a new frontend sub-menu in a private project</li>
@@ -578,7 +625,7 @@
                 <h3>Software Developer - Internship (1)</h3>
                 <p><b>Employer:</b> Hastega SRL</p>
                 <p><b>Location:</b> Lucca, Toscana, IT</p>
-                <p><b>Period:</b> June 2024</p>
+                <p><b>Period:</b> 10/06/2024 - 21/06/2024 (no weekends)</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Creating APIs for a private project by interacting with databases with the help of DBeaver.</li>
@@ -593,7 +640,7 @@
                 <h3>Steward (1)</h3>
                 <p><b>Employer:</b> Perchennò SRL</p>
                 <p><b>Location:</b> Viareggio, Tuscany, IT</p>
-                <p><b>Period:</b> June 2024</p>
+                <p><b>Period:</b> 13/06/2024 - 14/06/2024</p>
                 <p><b>Tasks:</b></p>
                 <ul>
                     <li>Welcoming visitors at a Warner Bros. event stand.</li>
