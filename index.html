@@ -470,8 +470,11 @@
             /* ------------------------- */
 
             .main {
+                /*pinned to the left*/
                 margin-left: 0;
+                /*expands on all width*/
                 width: 100%;
+                /*expands with content*/
                 min-height: auto;
             }
 
@@ -480,18 +483,22 @@
             /* ------------------------- */
 
             .topnav {
+                /*Goes right below "sidebar" (in the main)*/
                 position: relative;
+                /*Pins it to the left*/
                 left: 0;
+                /*Takes up all the width*/
                 width: 100%;
 
                 padding: 15px 20px;
                 gap: 20px;
 
-                flex-wrap: wrap; /* prevents overflow */
+                flex-wrap: wrap;
             }
 
             .subnav {
                 position: relative;
+                /*Makes it be right below the topnav*/
                 top: 0;
                 left: 0;
                 width: 100%;
@@ -509,7 +516,7 @@
             .content {
                 padding: 30px 20px;
                 width: 100%;
-                overflow-x: hidden; /* prevents horizontal scroll */
+                overflow-x: hidden; /* prevents occasional horizontal scroll (there won't be but just in case) */
             }
 
             /* ------------------------- */
