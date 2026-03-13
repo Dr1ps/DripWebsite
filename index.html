@@ -433,7 +433,20 @@
                 height: auto;
 
                 /* remove giant background image */
-                background: var(--sidebar);
+                background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0) 40%,          /* image fully visible */
+                    var(--sidebar) 100%           /* full color at bottom */
+                ),
+                url("images/photos/bg1.gif");
+
+            /*Makes the image fill the entire container (sidebar)*/
+            background-size: cover;
+            /*The top of the image starts at the top*/
+            background-position: top;
+            /*Gets rid of repeating images (there shouldnt be, but just in case)*/
+            background-repeat: no-repeat;
 
                 padding: 30px 20px;
 
