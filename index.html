@@ -313,7 +313,7 @@
         /* ============================= */
 
         .grid {
-            /*Sets up a grid*/
+            /*Sets up agrid*/
             display: grid;
             /*Space between each row and column*/
             gap: 30px;
@@ -331,6 +331,10 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         }
 
+        .images-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
         .card {
             background: var(--card);
             padding: 25px;
@@ -339,6 +343,7 @@
             position: relative;
             /*crops overflow, no scrollbars*/
             overflow: hidden;
+            height:100%;
         }
 
         /*Makes it pop*/
@@ -352,6 +357,7 @@
         .card img {
             /*images fill entire width*/
             width: 100%;
+            object-fit: cover;       /* scale and crop nicely */
             border-radius: 10px;
             margin-bottom: 15px;
         }
@@ -470,6 +476,7 @@
         <button onclick="showSection('connections')">Connections</button>
         <button onclick="showSection('resume')">Resume</button>
         <button onclick="showSection('creations')">Creations</button>
+        <button onclick="showSection('gallery')">Gallery</button>
         <button onclick="showSection('misc')">Miscellaneous</button>
     </div>
 
@@ -1014,7 +1021,27 @@
             </div>
 
         </div>
-
+        <!--Gallery-->
+        <div id="gallery" class="section">
+            <h1>Gallery</h1>
+            <div class="grid images-grid">
+                <div class="card">
+                    <img src="images/photos/LookingUp.jpeg">
+                    <h3>Looking Up</h3>
+                    <p>Taken at a birthday party.</p>
+                </div>
+                <div class="card">
+                    <img src="images/photos/pfp2.jpeg">
+                    <h3>Side Stare</h3>
+                    <p>Taken at a restaurant.</p>
+                </div>
+                <div class="card">
+                    <img src="images/photos/Varsity.jpeg">
+                    <h3>Varsity</h3>
+                    <p>Taken in Quiesa's Church Square</p>
+                </div>
+            </div>
+        </div>
         <!-- MISC -->
         <div id="misc" class="section">
 
