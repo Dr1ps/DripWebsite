@@ -360,9 +360,12 @@
         .card img {
             /*images fill entire width*/
             width: 100%;
+            height: 500px;
             object-fit: cover;       /* scale and crop nicely */
             border-radius: 10px;
             margin-bottom: 15px;
+            object-position: center;
+            display: block;
         }
 
         /* ============================= */
@@ -451,7 +454,7 @@
                 url("images/photos/bg5.gif");
 
             /*Makes the image fill the entire container (sidebar)*/
-            background-size: cover%;
+            background-size: cover;
             /*The top of the image starts at the top*/
             background-position: center 25%;
             /*Gets rid of repeating images (there shouldnt be, but just in case)*/
@@ -589,7 +592,7 @@
             <ul>
                 <li><strong>Full name:</strong> Gabriele Perna</li>
                 <li><strong>Also widely known as:</strong> Drip</li>
-                <li><strong>Date of birth:</strong> January 12, 2006</li>
+                <li><strong>Date of birth:</strong> January 12th, 2006</li>
                 <li><strong>Sex:</strong> Male</li>
                 <li><strong>Nationality:</strong> Italian</li>
                 <li><strong>Occupation:</strong> Computer science student</li>
@@ -653,7 +656,7 @@
         <!-- RESUME -->
         <div id="resume" class="section">
             <h1>Professional Profile</h1>
-            <h2>Skills</h2>
+            <h2>Tools & Technologies</h2>
             <div class="skillDiv">
                 <p class="skill"><i class="fa-brands fa-html5"></i> HTML & CSS</p>
                 <p class="skill"><i class="fa-brands fa-github"></i> GitHub</p>
@@ -1274,11 +1277,6 @@
                 <h1>Gallery</h1>
                 <div class="grid images-grid">
                     <div class="card">
-                        <img src="images/photos/Drip%20and%20his%20bike%207.JPG">
-                        <h3>The Motorbike</h3>
-                        <p>Taken near a sunflower field.</p>
-                    </div>
-                    <div class="card">
                         <img src="images/photos/Drip%20and%20Spike.jpg">
                         <h3>Spike</h3>
                         <p>Taken at home.</p>
@@ -1302,11 +1300,6 @@
                         <img src="images/photos/Roses.jpeg">
                         <h3>Roses</h3>
                         <p>Taken in Lucca.</p>
-                    </div>
-                    <div class="card">
-                        <img src="images/photos/LookingUp.jpeg">
-                        <h3>Looking Up</h3>
-                        <p>Taken at a birthday party.</p>
                     </div>
                     <div class="card">
                         <img src="images/photos/pfp2.jpeg">
@@ -1573,7 +1566,7 @@
     </div>
 
     <footer>
-        © 2026 Gabriele Perna — Enjoying Paradise
+        © 2026 Gabriele Perna — All rights reserved.
     </footer>
 
 </div>
