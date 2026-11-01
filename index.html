@@ -160,7 +160,7 @@
     /* sidebar width */
     left: 30vw;
     right: 0;
-    display: flex;
+    display: none;
     gap: 30px;
     padding: 15px 60px;
     background: var(--bg);
@@ -219,8 +219,7 @@
         /* ============================= */
 
         .content {
-            padding: 140px 60px 60px 60px;
-            /*tells item that it can grow or shrink if the parent has display: flex;*/
+            padding: 100px 60px 60px 60px;
             flex: 1;
         }
 
@@ -321,12 +320,6 @@
             gap: 30px;
             /*gap doesnt include spacing from the top*/
             margin-top: 30px;
-        }
-
-        .poem-grid {
-            /*makes as many colums as can fit in a row*/
-            /*at least 260px, they can stretch to fill remaining space*/
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         }
 
         .model-grid {
@@ -528,7 +521,6 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-
                 padding: 10px 20px;
                 gap: 15px;
 
@@ -553,7 +545,6 @@
                 gap: 20px;
             }
 
-            .poem-grid,
             .model-grid {
                 grid-template-columns: 1fr; /* single column on phones */
             }
@@ -585,7 +576,7 @@
 
     <div class="subnav" id="subnav"></div>
 
-    <div class="content">
+    <div class="content" id = "content">
         <div id="about" class="section active">
             <h1>About Me</h1>
             <h2>Personal Details</h2>
@@ -599,37 +590,31 @@
                 <li><strong>Driver's license:</strong> A1, B</li>
             </ul>
             <h2>Current life status</h2>
-            <p>I just won a very big talent show and got 1.500 euros as the first prize. Now working on some coding projects.</p>
+            <p>Studying for winter exam session and working on many personal projects.</p>
             <h2>Interests:</h2>
             <h3><i class="fa-solid fa-microphone"></i> Beatboxing</h3>
             <p><b>Beatboxing</b> is the way to produce music with your mouth and vocal cords.<br>
-                I saw my first beatbox video back in 2019 when the world-class beatbox tournament, <b>Grand Beatbox Battle</b>, was rising in popularity.
-                I was shocked to see what a person could create with nothing but themselves, that inspired me to become a beatboxer myself, I thought it was pretty <br>
-                I was also impressed by how many variation of this art-form there are: there's <b>Loopstation</b>, which involves the use of a looping device such as the MKI or MKII to loop sounds, add effects and create even more realistic music; there's <b>Tag Team</b> for beatboxing duos and <b>Crew category</b> for groups with more than 2 beatboxers.
+                I saw my first beatbox video back in 2019 when the world-class beatbox tournament, the <b>Grand Beatbox Battle</b>, was rising in popularity.
+                I was shocked to see what a person could create with nothing but themselves, that inspired me to become a beatboxer myself.<br>
+                What impressed me the most are the many forms of said art: there's <b>Loopstation</b>, which involves the use of a looping device such as the BOSS RC505 MKI or MKII to loop sounds, add effects and create even more realistic music; there's <b>Tag Team</b> for beatboxing duos and <b>Crew category</b> for groups with more than 2 beatboxers.
                 The beatboxers I look up to the most are <b>Codfish</b> and <b>D-low</b>, both world champions, respectively in 2018 and 2019.<br>
                 It had started as a casual hobby, but by time it became more and more serious. As of now, I work often on my sounds and I keep improving.<br>
-                "<b>Drip</b>" is also my stage-name (beatbox nickname), although it was not born for this purpose.<br>
-                My biggest dream is to get on that stage and show everyone my music. At the moment I'm participating in a lot of showcases and talent show competitions, winning most of them.<br>
-                What's incredible, I also managed to qualify for the <b>Italian Beatbox Family Championship</b> (italian beatbox championship), my first ever live event on a big stage.<br>
+                "<b>Drip</b>" is also my stage-name, although it was not born for this purpose.<br>
+                At the moment I'm participating in a lot of showcases, talent shows and competitions.<br>
                 I consider beatboxing to be the most rewarding passion I've ever had, the community is extremely supportive and so are my family and friends.
                 If you want to see some beatbox content of mine, go check out my socials!<br>
                 Furthermore, I really encourage you to check some Grand Beatbox Battle videos on the YouTube channel <b>Swissbeatbox</b>, beatbox can get really impressive.
             </p>
             <h3><i class="fa-solid fa-laptop-code"></i> Computer Science</h3>
-            <p>Since I got introduced to digital entertainment as a kid, such as video games, I've always been curious about how everything digital works. As I started learning the first concepts of <b>computer science</b> I knew the interest was going to stick with me for life.<br>
-                It's impressive how people managed to realize such complex systems and algorithms, every day as I learn more and more my passion grows and demands more. I'm pretty interested in everything that computer science has to offer: web development, networking, custom apps development and much more.
-                What's more, I appreciate the organized aspect of coding, nothing beats writing a well written program with proper documentation and format. Computer science knowledge has also helped me a lot with my everyday tasks saving me a lot of time, using <b>LaTeX</b> to take notes for example immensely improved my studying method efficiency for subjects like Calculus and Algebra.
+            <p>Since I got introduced to digital entertainment as a kid, such as video games, I've always been curious about how the digital world works. As I started learning the first concepts of <b>computer science</b> I knew the interest was going to stick with me for life.<br>
+                It's impressive how people managed to realize such complex systems and algorithms. I'm pretty interested in everything that computer science has to offer: web development, networking, software development and much more.
+                In addition, I appreciate the organized aspect of coding, nothing beats writing a well written program with proper documentation and format. Computer science knowledge has also helped me a lot with my everyday tasks saving me a lot of time, using <b>LaTeX</b> to take notes for example immensely improved my studying efficiency for subjects like Calculus and Algebra.
                 What keeps my computer science interest alive is also its constant evolution, which offers me new opportunities to improve and test my limits.</p>
             <h3><i class="fa-solid fa-gamepad"></i> Playing Videogames</h3>
-                <p>As most people my age have done and do, I like to spend some of my free time playing <b>video games</b>. I've been introduced to my first gaming console, the <b>Nintendo DSi</b>, while I was in elementary school.
+                <p>As many people my age have done and do, I like to spend some of my free time playing <b>video games</b>. I've been introduced to my first gaming console, the <b>Nintendo DSi</b>, while I was in elementary school.
                     The first ever video game I've played is <b>Mario Kart DS</b>, since then I've played an infinity of other titles on many different gaming consoles.<br>
-                    Playing video games to me is like watching a movie in which you take part and your choices matter. Besides the entertainment, these are the reasons why I enjoy playing video games: connecting with other people,
-                    learning new things and morals and training creativity and problem-solving. Furthermore, playing online helped me build <b>strong english speaking skills</b> that I would have never learned in school alone, and I'm really proud of it.</p>
-            <h3><i class="fa-solid fa-pencil"></i> Writing Poems</h3>
-                <p>Although not that often, sometimes I like to dedicate myself to some writing, in particular <b>poem writing</b>.<br>
-                    There is not a precise reason why I started writing, I apparently tried it out and happened to like it a lot. I try to always write poems of the same length but with different musicality, topic and vocabulary.
-                    I think writing is a great exercise for my english skills and knowledge, as it allows me to work on being synthetic, precise and original.
-                    To give myself a challenge, usually I prefer to write a poem about a <b>random topic</b> chosen by someone.</p>
+                    Playing video games to me is like watching a movie in which you take part and your choices matter. Besides the entertainment, the main reasons why I enjoy consuming video-games are: connecting with other people,
+                    learning new things and morals and training creativity and problem-solving. Furthermore, playing online helped me build <b>strong english speaking skills</b> that I would have never learned in school alone.</p>
             <h3><i class="fa-solid fa-gem"></i> Collectionism</h3>
                 <p>I started collecting various items when I was just a kid, such as <b>Pokèmon cards</b> and coins. I've always had the spark for collectionism, as of now I still can't explain it.<br>
                     I actually attempted many collections, such as stickers and <b>action figures</b>, but by time I abandoned most of them: some of them where too expensive and some others not very rewarding to go for.
@@ -824,238 +809,7 @@
         <!-- CREATIONS -->
         <div id="creations" class="section">
 
-            <div id="poemsSection">
-                <h1>Poems</h1>
-                <div class="grid poem-grid">
-
-                    <!-- TEMPLATE POEM -->
-                        <div class="card">
-                            <h3>Bees on flowers</h3>
-                            <p>
-                                In the middle of spring,<br>
-                                in a field populated by flowers,<br>
-                                flapping are the wings<br>
-                                of a hundred bees every hour.<br>
-                                The field brightly smiles<br>
-                                in many different colors<br>
-                                as bees make it happen.<br>
-                                Though, as the moon arises<br>
-                                bees call for their brothers<br>
-                                before the field entirely blackens.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Shield</h3>
-                            <p>
-                                We had to fall back,<br>
-                                no hope is left,<br>
-                                hundreds of corpses in the field.<br>
-                                They're preparing an attack,<br>
-                                bro's death left me bereft,<br>
-                                my only escape is my shield.<br>
-                                I could use it to run back safely<br>
-                                until I'm out of range,<br>
-                                sadly, the blood on it already<br>
-                                tells me well it might not age.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Music</h3>
-                            <p>
-                                Organized soundwaves<br>
-                                really are a masterpiece,<br>
-                                music is what makes<br>
-                                life as good as it is.<br>
-                                It does tickle my heart,<br>
-                                made me dance like a fool<br>
-                                since the day I was born.<br>
-                                A form of art<br>
-                                that talks to you<br>
-                                without need of any word.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Groundhogs</h3>
-                            <p>
-                                I like the sight<br>
-                                of groundhogs in the forest<br>
-                                near my home.<br>
-                                My day they surely bright,<br>
-                                it really is the best<br>
-                                to see them aimlessly roam.<br>
-                                I tried to bring one home today<br>
-                                by patting it on the back,<br>
-                                it once was all alone and stray<br>
-                                but now it follows me after I gave it a snack.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Distant friends</h3>
-                            <p>
-                                For all the ones I adore<br>
-                                a new wound opens,<br>
-                                one that never heals.<br>
-                                The love seems to not be there,<br>
-                                distance is the burden<br>
-                                that makes it not be real.<br>
-                                I miss my friends,<br>
-                                even though I never met them,<br>
-                                Useless, illusory pain,<br>
-                                may this note be torn to shreds
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Hell</h3>
-                            <p>
-                                Eternal scorching fire,<br>
-                                Gift for your sinful desires.<br>
-                                Traitors, fiends and liars,<br>
-                                all of you, Inferno must admire!<br>
-                                All your hope must be left<br>
-                                at the glorious welcome mat<br>
-                                and your spirit is sold.<br>
-                                Doomed as in here you stepped,<br>
-                                get devoured by a pack<br>
-                                or frozen in the eternal cold.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The uselessness of dreaming</h3>
-                            <p>
-                                Leave it,<br>
-                                Hate it,<br>
-                                Throw it away.<br>
-                                Dreaming,<br>
-                                Wishes,<br>
-                                There's no reason to stay.<br>
-                                Called 'dreams' for a reason,<br>
-                                in those, everything is ideal,<br>
-                                it infatuates you good,<br>
-                                but at last, it can't be real.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The hollow of sadness</h3>
-                            <p>
-                                Sadness and delusion<br>
-                                feel the same as hunger,<br>
-                                a deep serious hollow,<br>
-                                one is food, one is darker.<br>
-                                Hunger's good, it kills you,<br>
-                                bad mood is kind of rude,<br>
-                                then easy it is to choose:<br>
-                                die of hunger, don't feel blue,<br>
-                                as hunger saves you<br>
-                                from what is cruel.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The meaning of life</h3>
-                            <p>
-                                A miraculous gift<br>
-                                from an unknown sender,<br>
-                                meaningless extended shift<br>
-                                on which we always ponder.<br>
-                                What's that, what's it for?<br>
-                                What's life supposed to be?<br>
-                                Billion answers, no one's sure,<br>
-                                the sense we have is to live it<br>
-                                since when on Earth we perish<br>
-                                we'll find out or we won't.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The Mouth Inspector</h3>
-                            <p>
-                                Panic arrives and you stall,<br>
-                                occurs out of nowhere,<br>
-                                it's coming, that's the sign.<br>
-                                The Mouth appears on the wall,<br>
-                                checks the clean place<br>
-                                and yet it screams, you resign.<br>
-                                Panic becomes fear<br>
-                                and stress becomes terror,<br>
-                                no pain, no aches, no tears,<br>
-                                just a bad, disastrous error.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The importance of Nostalgia</h3>
-                            <p>
-                                Life includes feelings,<br>
-                                feelings include nostalgia,<br>
-                                nostalgia defines life.<br>
-                                Memories make the living,<br>
-                                not joy, nor anger or fear,<br>
-                                only melancholy is needed here.<br>
-                                Distant attachments,<br>
-                                childhood, us during our prime,<br>
-                                if these for you are absent,<br>
-                                sorry, you're yet not alive.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>The weight of unspoken words</h3>
-                            <p>
-                                You almost had it,<br>
-                                just one more sentence<br>
-                                and you'd be done,<br>
-                                yet, words suddenly perished,<br>
-                                buried on your inner self<br>
-                                as if it was crushed by stones.<br>
-                                In pain, the soul reaches<br>
-                                for a handle to free itself,<br>
-                                that's the wish for new chances<br>
-                                which horizon seems to be dead.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>A cabin in the snow</h3>
-                            <p>
-                                Singular entity of peace<br>
-                                in a biome of dense nothing,<br>
-                                an insufficient creaky place<br>
-                                is the only where there's living.<br>
-                                A deep, eerie howling,<br>
-                                steps that feel like thunder,<br>
-                                the fumes of your inner soul.<br>
-                                In here, my brain sings<br>
-                                and lets me be me, my best tool<br>
-                                fueled by the concept of home.
-                            </p>
-                        </div>
-                        <div class="card">
-                            <h3>Attack of the Titan</h3>
-                            <p>
-                                Trapped in a stone horizon<br>
-                                just for our own survival.<br>
-                                It was a matter of time before their arrival,<br>
-                                as today the wall fell to a Titan.<br>
-                                No will, no hunger,<br>
-                                yet they seek for our death,<br>
-                                I can't believe i'm writing this<br>
-                                as one's chomping on my dad.<br>
-                                This is how humanity ends,<br>
-                                farewell, my dear friends.
-                            </p>
-                        </div>
-                        </p>
-                </div>
-            </div>
-
-            <div id="modelsSection" style="display:none;">
+            <div id="modelsSection" style="display:block;">
                 <h1>3D Models</h1>
                 <div class="grid model-grid">
 
@@ -1573,22 +1327,29 @@
 
 <script>
     function showSection(id){
-    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-    const sub=document.getElementById("subnav");
-    sub.innerHTML="";
-    if(id==="creations"){
-    sub.innerHTML=`<button onclick="showCreation('poems')">Poems</button>
-    <button onclick="showCreation('models')">3D Models</button>`;
-    }
-    if(id==="misc"){
-    sub.innerHTML=`<button onclick="showMisc('curiosities')">More about me</button>
-    <button onclick="showMisc('gallery')">Gallery</button>
-    <button onclick="showMisc('rankings')">Rankings</button>`;
-    }
+        document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        const sub=document.getElementById("subnav");
+        const cont=document.getElementById("content");
+        sub.innerHTML="";
+        if(id==="creations"){
+            sub.innerHTML=`<button onclick="showCreation('models')">3D Models</button>`;
+            sub.style.display = "flex";
+            cont.style.paddingTop = "140px";
+            return;
+        }
+        if(id==="misc"){
+            sub.innerHTML=`<button onclick="showMisc('curiosities')">More about me</button>
+            <button onclick="showMisc('gallery')">Gallery</button>
+            <button onclick="showMisc('rankings')">Rankings</button>`;
+            sub.style.display = "flex";
+            cont.style.paddingTop = "140px";
+            return;
+        }
+        cont.style.paddingTop = "100px";
+        sub.style.display = "none";
     }
     function showCreation(type){
-    document.getElementById("poemsSection").style.display=type==="poems"?"block":"none";
     document.getElementById("modelsSection").style.display=type==="models"?"block":"none";
     }
     function showMisc(type){
