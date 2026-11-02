@@ -351,6 +351,14 @@
         }
 
         .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card img.notCropped {
             /*images fill entire width*/
             width: 100%;
             height: 500px;
@@ -624,6 +632,9 @@
         <div id="connections" class="section">
             <h1>Connections</h1>
             <div class="connectionDiv">
+                <a href="mailto:perna.gabriele@pec.it" class="connection"><i class="fas fa-envelope"></i> perna.gabriele@pec.it</a>
+                <a href="mailto:hello.gabriele.perna@email.com" class="connection"><i class="fas fa-envelope"></i> hello.gabriele.perna@gmail.com</a>
+                <a href="mailto:gabriele.perna@outlook.com" class="connection"><i class="fas fa-envelope"></i> gabriele.perna@outlook.com</a>
                 <a href="https://github.com/Dr1ps" class="connection"><i class="fab fa-github"></i> Dr1ps</a>
                 <a href="https://www.instagram.com/drip.bbx/" class="connection"><i class="fab fa-instagram"></i> drip.bbx </a>
                 <a href="https://www.facebook.com/profile.php?id=61567116280808" class="connection"><i class="fab fa-facebook"></i> Gabriele Perna</a>
@@ -633,9 +644,6 @@
                 <a href="https://it.pinterest.com/gabrigionny/" class="connection"><i class="fa-brands fa-pinterest"></i> Dr1p_s</a>
                 <a href="https://discord.com/users/620240111937912832" class="connection"><i class="fa-brands fa-discord"></i> am.i.drip</a>
                 <a href="https://www.vinted.it/member/288259183" class="connection"><i class="fa-solid fa-cart-shopping"></i> am.i.drip</a>
-                <a href="https://www.icasting.it/profilo/Drip" class="connection"><i class="fa-solid fa-tv"></i> Drip</a>
-                <a href="mailto:perna.gabriele@pec.it" class="connection"><i class="fas fa-envelope"></i> perna.gabriele@pec.it</a>
-                <a href="mailto:gabrigionny@email.com" class="connection"><i class="fas fa-envelope"></i> gabrigionny@gmail.com</a>
             </div>
         </div>
         <!-- RESUME -->
@@ -653,7 +661,45 @@
                 <p class="skill"><i class="fa-solid fa-file-powerpoint"></i> PowerPoint</p>
                 <p class="skill"><i class="fa-solid fa-database"></i> Databases and MySQL</p>
             </div>
+            <h2>Education</h2>
+            <h3>University of Pisa - Computer Science Department</h3>
+            <ul>
+                <li><b>Period:</b> October 2025 - Now</li>
+            </ul>
+            <h3>I.T.I. "Enrico Fermi", Lucca - Computer Science</h3>
+            <ul>
+                <li><b>Period:</b> Semptember 2020 - June 2025</li>
+                <li><b>Final grade:</b> 100/100</li>
+            </ul>
             <h2>Experience</h2>
+            <div class="card">
+                <h3>Mascotte Support and Stocking</h3>
+                <p><b>Employer:</b> PromoHostess</p>
+                <p><b>Location:</b> Lucca, Tuscany, IT</p>
+                <p><b>Period:</b> 28/10/2026 - 31/10/2026</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Receiving and taking care of two Mascottes for an event at Lucca Comics & Games.</li>
+                    <li>Cleaning the Mascottes.</li>
+                    <li>Bringing the Mascottes to the city center.</li>
+                    <li>Supporting the Mascotte wearers by helping them put them on and take them off.</li>
+                    <li>Guiding the Mascottes through the crowd and obstacles.</li>
+                    <li>Bringing back the Mascottes for pickup.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Singing Competition Judge</h3>
+                <p><b>Employer:</b> New Talent School</p>
+                <p><b>Location:</b> Bargecchia, Tuscany, IT</p>
+                <p><b>Period:</b> 18/10/2026</p>
+                <p><b>Tasks:</b></p>
+                <ul>
+                    <li>Listening to all the contestants' showcases attentively.</li>
+                    <li>Scoring the performances.</li>
+                    <li>Calculating final results and the winner.</li>
+                    <li>Performing during a judge showcase.</li>
+                </ul>
+            </div>
             <div class="card">
                 <h3>Event Crew</h3>
                 <p><b>Employer:</b> PromoHostess</p>
@@ -787,22 +833,15 @@
                     <li>Organizing recreational activities for children.</li>
                 </ul>
             </div>
-            <h2>Education</h2>
-            <h3>I.T.I. "Enrico Fermi", Lucca - Computer Science</h3>
-            <ul>
-                <li><b>Period:</b> Semptember 2020 - June 2025</li>
-                <li><b>Final grade:</b> 100/100</li>
-            </ul>
-            <h3>University of Pisa - Computer Science Department</h3>
-            <ul>
-                <li><b>Period:</b> October 2025 - Now</li>
-            </ul>
             <h2>Certificates</h2>
             <ul>
                 <li><b>Certificate in Advanced English (C1 Advanced) —</b> Cambridge English</li>
+                <li><b>Self Empowerment Badge -</b> University of Pisa</li>
+                <li><b>The Job Interview -</b> University of Pisa</li>
                 <li><b>HACCP —</b> Hideea</li>
-                <li>BLSD — Regione Toscana</li>
-                <li><b>"Certificato per la sicurezza sul lavoro (basso livello)" —</b> Centro Formazione Innovazione (CFI)</li>
+                <li><b>Cybersecurity Fundamentals -</b> Santender Open Academy</li>
+                <li><b>BLSD</b> — Regione Toscana</li>
+                <li><b>Worksafety (Low level) —</b> Centro Formazione Innovazione (CFI)</li>
             </ul>
         </div>
 
@@ -815,117 +854,117 @@
 
                     <!-- TEMPLATE MODEL -->
                     <div class="card">
-                        <img src="images/models/Bomb.gif">
+                        <img src="images/models/Bomb.gif" loading="lazy">
                         <h3>Bomb</h3>
                         <p>Lucky thing it's not ignited.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Can.gif">
+                        <img src="images/models/Can.gif" loading="lazy">
                         <h3>Soda Can</h3>
                         <p>Fizzy!</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Cigarette.gif">
+                        <img src="images/models/Cigarette.gif" loading="lazy">
                         <h3>Cigarette</h3>
                         <p>Don't smoke guys!</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Diamond.gif">
+                        <img src="images/models/Diamond.gif" loading="lazy">
                         <h3>Diamond</h3>
                         <p>IM RICH!</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Dice.gif">
+                        <img src="images/models/Dice.gif" loading="lazy">
                         <h3>Dice</h3>
                         <p>Chooses your destiny.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/King Slime.gif">
+                        <img src="images/models/King Slime.gif" loading="lazy">
                         <h3>King Slime</h3>
                         <p>Trying its best.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Lollipop.gif">
+                        <img src="images/models/Lollipop.gif" loading="lazy">
                         <h3>Lollipop</h3>
                         <p>Impossible to unwrap.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Mace.gif">
+                        <img src="images/models/Mace.gif" loading="lazy">
                         <h3>Mace</h3>
                         <p>The real skull-crusher.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Machete.gif">
+                        <img src="images/models/Machete.gif" loading="lazy">
                         <h3>Machete</h3>
                         <p>Might chop your hand off.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Magnifying Glass.gif">
+                        <img src="images/models/Magnifying Glass.gif" loading="lazy">
                         <h3>Magnifying Glass</h3>
                         <p>May cause unexpected fires.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Mario Kart Trophy.gif">
+                        <img src="images/models/Mario Kart Trophy.gif" loading="lazy">
                         <h3>Mario Kart Trophy</h3>
                         <p>Given to the best racers.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Minecraft Bee.gif">
+                        <img src="images/models/Minecraft Bee.gif" loading="lazy">
                         <h3>Minecraft's Bee</h3>
                         <p>Bzzzzz!</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Mistery Block.gif">
+                        <img src="images/models/Mistery Block.gif" loading="lazy">
                         <h3>Mistery Block</h3>
                         <p>Looks rather familiar.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Nintendo3DS.gif">
+                        <img src="images/models/Nintendo3DS.gif" loading="lazy">
                         <h3>Nintendo 3DS XL</h3>
                         <p>Everybody's childhood.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Piece of cake.gif">
+                        <img src="images/models/Piece of cake.gif" loading="lazy">
                         <h3>Slice of Cake</h3>
                         <p>Happy birthday!</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Potted Flower.gif">
+                        <img src="images/models/Potted Flower.gif" loading="lazy">
                         <h3>Potted Flower</h3>
                         <p>The master of patio design.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Red Button.gif">
+                        <img src="images/models/Red Button.gif" loading="lazy">
                         <h3>Red Button</h3>
                         <p>Makes you want to press it.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Rubiks Cube.gif">
+                        <img src="images/models/Rubiks Cube.gif" loading="lazy">
                         <h3>Rubik's Cube</h3>
                         <p>Only the biggest minds can solve it.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Snail.gif">
+                        <img src="images/models/Snail.gif" loading="lazy">
                         <h3>Snail</h3>
                         <p>Takes its time...</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Stack of Money.gif">
+                        <img src="images/models/Stack of Money.gif" loading="lazy">
                         <h3>Stack of Money</h3>
                         <p>The rubber band is about to snap.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Sword.gif">
+                        <img src="images/models/Sword.gif" loading="lazy">
                         <h3>Sword</h3>
                         <p>Recently forged.</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Toilet Paper.gif">
+                        <img src="images/models/Toilet Paper.gif" loading="lazy">
                         <h3>Toilet Paper</h3>
                         <p>The "trick" in "trick or treat"</p>
                     </div>
                     <div class="card">
-                        <img src="images/models/Top Hat.gif">
+                        <img src="images/models/Top Hat.gif" loading="lazy">
                         <h3>Top Hat</h3>
                         <p>Classy.</p>
                     </div>
@@ -939,14 +978,14 @@
             <div class="card">
                 <h3>Winner of the Garfagnana's Got Talent 2026</h3>
                 <p><b>Date:</b> 14/08/2026</p>
-                <img src="images/photos/GGT.jpg" alt="Logo" style="float: right; margin-left: 20px; width: 150px;">
+                <img src="images/photos/GGT.jpg" alt="Logo" style="float: right; margin-left: 20px; width: 150px;" loading="lazy">
                 <p>Garfagnana's Got Talent is a big event held in <b>Castelnuovo di Garfagnana</b> that features many talented artists who compete for the big prize of <b>1.500 euros</b> in coupons.
                 It was a tough competition, many participants were very talented. My performance, however, scored me the win, allowing me to gain immense visibility and confidence for future projects.</p>
             </div>
             <div class="card">
                 <h3>Selected for Italian Beatbox Champs of 2026</h3>
                 <p><b>Date:</b> 11/03/2026</p>
-                <img src="images/photos/ibfLogo.png" alt="Logo" style="float: right; margin-left: 20px; width: 150px;">
+                <img src="images/photos/ibfLogo.png" alt="Logo" style="float: right; margin-left: 20px; width: 150px;" loading="lazy">
                 <p>In order to enter the Italian Beatbox Championship, you must record a <b>Wildcard</b>, which is a video of your beatboxing. Only the best wildcards would get selected to go to the live event.<br>
                 This year (2026), besides it being my first recorded wildcard ever, my performance was included in the top 32 and I managed to score a spot to the live event.                     The moment I saw the post with my name on it, I freaked out, I couldn't believe it. I was finally able to show the community my skills and passion for beatboxing, as well as being able to meet many beatbox brothers.<br>
                     I see this as the start of a big growth in my career, as it brought me confidence and determination.<br></p>
@@ -954,15 +993,15 @@
             <div class="card">
                 <h3>Winner of the contest "Progetto Finanza e Borsa Nella Scuola A.S. 2023/2024"</h3>
                 <p><b>Date:</b> 22/10/2024</p>
-                <img src="images/photos/london.jpeg" alt="Logo" style="float: right; margin-left: 20px; width: 200px;">
+                <img src="images/photos/london.jpeg" alt="Logo" style="float: right; margin-left: 20px; width: 200px;" loading="lazy">
                 <p>A finance class I was attending with my friends in high school organized a contest, it consisted forming a team and buying / selling actions on a simulator online.<br>
-                The two teams that would make the biggest profits would be considered the winners of the contest. Unexpectedly, my team won and we managed to score a free trip to <b>London</b>. It's always been my dream to go to London, my friends and I were super excited when we found out about it.<br>
+                The two teams that would make the biggest profits would be considered the winners of the contest. Unexpectedly, my team won and we managed to score a free trip to <b>London</b>. It had always been my dream to go to London, my friends and I were super excited when we found out about it.<br>
                 We even got a spot on the local journal, it was a rather satisfying experience.</p>
             </div>
             <div class="card">
                 <h3>Winner of a Video Game Creation Contest</h3>
                 <p><b>Date:</b> 10/06/2021</p>
-                <img src="images/photos/SpaceInvaders.png" alt="Logo" style="float: right; margin-left: 20px; width: 200px;">
+                <img src="images/photos/SpaceInvaders.png" alt="Logo" style="float: right; margin-left: 20px; width: 200px;" loading="lazy">
                 <p>During my first year of high school, I participated with some friends in a Video Game Developing contest: we had to recreate <b>Space Invaders</b> by using <b>Scratch 2.</b><br>
                 The contest consisted in two rounds: in the first round groups from the same class would clash, the winner would then advance to the second and final round against groups of other classes.<br>
                 My group managed to get 1st place, our project was well polished, great sound design, mechanics, unique abilities and features, great code and even some easter eggs (Kirby was a playable character).<br>
@@ -976,35 +1015,28 @@
                 <h1>More about me</h1>
                 <h2>Drip, the story of my name</h2>
                 <p>
-                    🏝️ I used to play on a Minecraft server with my classmates. I had a base made of floating islands — a large one in the center, with smaller, less important ones surrounding it.
+                    I used to play on a Minecraft server with my classmates. I had a base made of floating islands, with one large island in the center and several smaller ones surrounding it.
                     <br><br>
 
-                    💧 The only way to reach them was a single stream of water that ran all the way down to the ground.
-                    <br>
-                    🚶‍♂️ As you can imagine, it was hard to bring mobs up there, and I felt kind of lonely.
+                    The only way to reach the islands was through a stream of water that ran all the way down to the ground. As you can imagine, bringing mobs up there was difficult, and I often felt a little lonely.
                     <br><br>
 
-                    🦊 I decided to bring up a companion — I found a fox holding an emerald and jokingly named him Drip.
-                    <br>
-                    📤 I brought him up the water stream and started building a dedicated island just for him.
+                    One day, I decided to find a companion. I came across a fox holding an emerald and jokingly named him <strong>Drip</strong>. I brought him up the water stream and started building an island just for him.
                     <br><br>
 
-                    Sadly, the bridges connecting the islands weren’t very safe, and Drip fell off to his death.
+                    Sadly, the bridges connecting the islands weren't very safe, and Drip fell to his death.
                     <br><br>
 
-                    🌼 The island I had built for him became a graveyard, with only his tombstone on it.
-                    <br>
-                    💎 I placed his emerald on the grave, along with a book where everyone wrote a message to Drip.
-                    <br>
-                    🌟 Drip had been the mascot of the server for its entire life — losing him was a big moment.
+                    The island I had built for him eventually became a <strong>graveyard</strong>, with nothing but his tombstone on it. I placed his emerald on the grave and added a book where everyone could leave a message for him.
                     <br><br>
 
-                    👤 To honor him, I took on his name, so he would never be forgotten.
-                    <br>
-                    💬 I changed my Discord name to Drip, and it has stayed that way ever since.
+                    Drip had been the mascot of the server for as long as it existed, so losing him was a big moment for everyone.
                     <br><br>
 
-                    🌈 Drip lives on, enjoying paradise.
+                    To honor him, I decided to take his name so he would never be forgotten. I changed my Discord name to <strong>Drip</strong>, and I've kept it ever since.
+                    <br><br>
+
+                    <strong>Drip lives on, enjoying paradise.</strong>
                 </p>
                 <h2>Favorites</h2>
                 <ul>
@@ -1031,37 +1063,37 @@
                 <h1>Gallery</h1>
                 <div class="grid images-grid">
                     <div class="card">
-                        <img src="images/photos/Drip%20and%20Spike.jpg">
+                        <img src="images/photos/Drip%20and%20Spike.jpg" class="notCropped" loading="lazy">
                         <h3>Spike</h3>
                         <p>Taken at home.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/Faro's%20Talent%20Show%20-%20Drip's%20Picture%205.jpg">
+                        <img src="images/photos/Faro's%20Talent%20Show%20-%20Drip's%20Picture%205.jpg" class="notCropped" loading="lazy">
                         <h3>Showcase at "Faro's Talent Show"</h3>
                         <p>Taken in Lucca.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/Festival%20delle%20Borgate%20-%20Drip's%20Picture%202.jpg">
+                        <img src="images/photos/Festival%20delle%20Borgate%20-%20Drip's%20Picture%202.jpg" class="notCropped" loading="lazy">
                         <h3>Showcase at "Festival delle Borgate"</h3>
                         <p>Taken in Bargecchia.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/Rotonde%20Alessio's%20PhD%20Pictures%20%20(22).JPG">
+                        <img src="images/photos/Rotonde%20Alessio's%20PhD%20Pictures%20%20(22).JPG" class="notCropped" loading="lazy">
                         <h3>Suited Up</h3>
                         <p>Taken at "Le Rotonde", Massaciuccoli.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/Roses.jpeg">
+                        <img src="images/photos/Roses.jpeg" class="notCropped" loading="lazy">
                         <h3>Roses</h3>
                         <p>Taken in Lucca.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/pfp2.jpeg">
+                        <img src="images/photos/pfp2.jpeg" class="notCropped" loading="lazy">
                         <h3>Side Stare</h3>
                         <p>Taken at a restaurant.</p>
                     </div>
                     <div class="card">
-                        <img src="images/photos/Varsity.jpeg">
+                        <img src="images/photos/Varsity.jpeg " class="notCropped" loading="lazy">
                         <h3>Varsity</h3>
                         <p>Taken in Quiesa's Church Square</p>
                     </div>
@@ -1071,7 +1103,7 @@
                 <h1>Rankings</h1>
                 <h2>Top Favorite Pokémons</h2>
                 <div class="card">
-                    <img src="images/photos/favpoks.png">
+                    <img src="images/photos/favpoks.png" loading="lazy">
                 </div>
                 <h2>Video Games</h2>
                 <ol>
@@ -1332,6 +1364,10 @@
         const sub=document.getElementById("subnav");
         const cont=document.getElementById("content");
         sub.innerHTML="";
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
         if(id==="creations"){
             sub.innerHTML=`<button onclick="showCreation('models')">3D Models</button>`;
             sub.style.display = "flex";
